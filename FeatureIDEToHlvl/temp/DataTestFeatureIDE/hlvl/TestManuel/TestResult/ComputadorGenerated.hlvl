@@ -51,20 +51,8 @@ elements:
 	boolean Tipo
 	boolean Computador
 relations:
-	r0:group(Tipo,[Servidor, Personal])
-	r1:group(Personal,[Mesa, Portatil])
-	r2:group(Marca,[Dell, Toshiba, Lenovo, Apple, Clon])
-	r3:group(SO,[Linux, Mac SO, Windows])
-	r4:group(Linux,[Fedora, Red Hat])
-	r5:group(Mac SO,[Yosemite, OS X Server])
-	r6:group(Windows,[Windows 10, Windows Server])
-	r7:group(Procesador,[AMD, Intel])
-	r8:group(Memoria,[4 GB, 8 GB, 16 GB, 32 GB, 64 GB])
-	r9:group(Disco,[500 GB, 1 TB, 2 TB, 5 TB, 10 TB])
-	r10:group(Tarjeta Grafica,[ATI, NVIDIA])
-	r11:group(Tecnologia,[3D, 4K])[1,*]
-	r12:group(Size,[14 Pulgadas, 17 Pulgadas, 24 Pulgadas])
-	r13:decomposition(Computador,[Planta De Poder])<0>
+	r0:group(Tipo,[Servidor, Personal],	r1:group(Personal,[Mesa, Portatil],	r2:group(Marca,[Dell, Toshiba, Lenovo, Apple, Clon],	r3:group(SO,[Linux, Mac SO, Windows],	r4:group(Linux,[Fedora, Red Hat],	r5:group(Mac SO,[Yosemite, OS X Server],	r6:group(Windows,[Windows 10, Windows Server],	r7:group(Procesador,[AMD, Intel],	r8:group(Memoria,[4 GB, 8 GB, 16 GB, 32 GB, 64 GB],	r9:group(Disco,[500 GB, 1 TB, 2 TB, 5 TB, 10 TB],	r10:group(Tarjeta Grafica,[ATI, NVIDIA],	r11:group(Tecnologia,[3D, 4K],[1,*])
+	r12:group(Size,[14 Pulgadas, 17 Pulgadas, 24 Pulgadas],	r13:decomposition(Computador,[Planta De Poder],[0,1])
 	r14:expression(((Personal) OR (~ (Windows 10))))
 	r15:expression(((Servidor) OR (~ (Windows Server))))
 	r16:expression(((~ (Pantalla)) OR (Portatil)))
