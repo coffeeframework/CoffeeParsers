@@ -1,8 +1,6 @@
 package com.coffee.modelParses.featureIDEToHLVL.manuel;
 
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.coffee.modelParsers.featureIDEToHlvlParser.FeatureIDEToHLVL;
@@ -409,7 +408,7 @@ public class TestFeatureIDEToHLVLManuel {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail();
+			Assert.fail();
 		}
 		String result = cargarValoresGenerados(1);
 		
@@ -423,7 +422,7 @@ public class TestFeatureIDEToHLVLManuel {
 					break;
 				}
 			}
-			assertTrue(exist);
+			Assert.assertTrue(exist);
 			exist = false;
 		}
 		for (String string : setRelations) {
@@ -433,7 +432,7 @@ public class TestFeatureIDEToHLVLManuel {
 					break;
 				}
 			}
-			assertTrue(exist);
+			Assert.assertTrue(exist);
 			exist = false;
 		}
 	}
@@ -446,7 +445,7 @@ public class TestFeatureIDEToHLVLManuel {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail();
+			Assert.fail();
 		}
 		String result = cargarValoresGenerados(2);
 		
@@ -460,7 +459,7 @@ public class TestFeatureIDEToHLVLManuel {
 					break;
 				}
 			}
-			assertTrue(exist);
+			Assert.assertTrue(exist);
 			exist = false;
 		}
 		for (String string : setRelations) {
@@ -470,7 +469,7 @@ public class TestFeatureIDEToHLVLManuel {
 					break;
 				}
 			}
-			assertTrue(exist);
+			Assert.assertTrue(exist);
 			exist = false;
 		}
 	}
@@ -482,7 +481,7 @@ public class TestFeatureIDEToHLVLManuel {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			fail();
+			Assert.fail();
 		}
 		String result = cargarValoresGenerados(3);
 		
@@ -497,7 +496,7 @@ public class TestFeatureIDEToHLVLManuel {
 					break;
 				}
 			}
-			assertTrue(exist);
+			Assert.assertTrue(exist);
 			exist = false;
 		}
 		for (String string : setRelations) {
@@ -507,7 +506,7 @@ public class TestFeatureIDEToHLVLManuel {
 					break;
 				}
 			}
-			assertTrue(exist);
+			Assert.assertTrue(exist);
 			exist = false;
 		}
 	}
