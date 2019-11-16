@@ -80,7 +80,6 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 	 * Also, this method is responsible of the initialization of the xmlTree attribute.
 	 * 
 	 */
-	//TODO
 	public void initialize() {
 		xmlReader = new XmlReader();
 		xmlReader.loadXmlFile(params.getInputPath());
@@ -217,7 +216,7 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 			HlvlCode.append("	" + converter.getGroup(findNameInNode(n), names, GroupType.Or));
 		} else if (n.getNodeName().equals("alt")) {
 			ArrayList<String> names = groupNamesChildrens(n);
-			HlvlCode.append("	" + converter.getGroup(findNameInNode(n), names, GroupType.And));
+			HlvlCode.append("	" + converter.getGroup(findNameInNode(n), names, GroupType.Xor));
 		}
 	}
 
@@ -229,12 +228,14 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 	 */
 	public void addDescomposition(Node n) {
 		//for (int i = 0; i < n.getAttributes().getLength(); i++) {
-			if (n.getAttributes().item(0).getNodeName().equals("mandatory")&& 
+			Object parent = n.getParentNode().getNodeName();
+			if (n.getParentNode().getNodeName().equals("struct")&& 
 			   (findNameInNode(n.getParentNode()).equals("")) && 
 			   (!n.getParentNode().getNodeName().equals("or")&& 
 				!n.getParentNode().getNodeName().equals("alt"))) {
 				HlvlCode.append("	" + converter.getCommon(findNameInNode(n)));
-			} else if (n.getAttributes().item(0).getNodeName().equals("mandatory")&& 
+			} else if ((n.getAttributes().item(0).getNodeName().equals("mandatory")
+						|| (n.getAttributes().item(1) != null && n.getAttributes().item(1).getNodeName().equals("mandatory")))&& 
 					  (!findNameInNode(n.getParentNode()).equals("")) && 
 					  (!n.getParentNode().getNodeName().equals("or")
 					&& !n.getParentNode().getNodeName().equals("alt"))) {
@@ -394,6 +395,46 @@ public class FeatureIDEToHLVL implements IHlvlParser {
 		HlvlCode.append(converter.getHeader("Auto_generated"));
 		readTree(xmlTree.get(0));
 		return HlvlCode.toString();
+	}
+
+	public StringBuilder getHlvlCode() {
+		return HlvlCode;
+	}
+
+	public void setHlvlCode(StringBuilder hlvlCode) {
+		HlvlCode = hlvlCode;
+	}
+
+	public ParsingParameters getParams() {
+		return params;
+	}
+
+	public void setParams(ParsingParameters params) {
+		this.params = params;
+	}
+
+	public IHlvlAttFactory getConverter() {
+		return converter;
+	}
+
+	public void setConverter(IHlvlAttFactory converter) {
+		this.converter = converter;
+	}
+
+	public XmlReader getXmlReader() {
+		return xmlReader;
+	}
+
+	public void setXmlReader(XmlReader xmlReader) {
+		this.xmlReader = xmlReader;
+	}
+
+	public ArrayList<Node> getXmlTree() {
+		return xmlTree;
+	}
+
+	public void setXmlTree(ArrayList<Node> xmlTree) {
+		this.xmlTree = xmlTree;
 	}
 	
 
