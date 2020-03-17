@@ -1,20 +1,15 @@
 package com.coffee.modelParsers.featureIDEToHLVL;
 
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
 
-import org.junit.BeforeClass;
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.coffee.modelParsers.featureIDEToHlvlParser.FeatureIDEToHLVL;
-import com.coffee.modelParsers.utils.ParsingParameters;
+import com.github.coffeeframework.utils.ParsingParameters;
 
 public class TestFeatureIDEToHLVLJoan {
 	
@@ -95,11 +90,11 @@ public class TestFeatureIDEToHLVLJoan {
 				datosHLVL += linea + "\n";
 				linea = in.readLine();
 			}
-			assertTrue(datosHLVL.equals(resultado));
+			Assert.assertTrue(datosHLVL.equals(resultado));
 			in.close();
 			f.close();
 		} catch (IOException e) {
-			fail();
+			Assert.fail();
 		}
 		
 	}
@@ -171,10 +166,10 @@ public class TestFeatureIDEToHLVLJoan {
 		String variamosResult = "";
 		try {
 			variamosResult = fToH.parse(xml);
-			assertTrue(variamosResult.equals(resultado));
+			Assert.assertTrue(variamosResult.equals(resultado));
 		} catch (Exception e) {
 			e.printStackTrace();
-			fail();
+			Assert.fail();
 		}
 	}
 	
@@ -265,10 +260,10 @@ public class TestFeatureIDEToHLVLJoan {
 			String variamosResult = fToH.parse(xml);
 			
 			System.out.println(variamosResult);
-			assertTrue(resultado.equals(variamosResult));
+			Assert.assertTrue(resultado.equals(variamosResult));
 		} catch (Exception e) {
 			e.printStackTrace();
-			fail();
+			Assert.fail();
 		}
 	}
 
@@ -313,11 +308,11 @@ public class TestFeatureIDEToHLVLJoan {
 				datosHLVL += linea + "\n";
 				linea = in.readLine();
 			}
-			assertTrue(datosHLVL.equals(resultado));
+			Assert.assertTrue(datosHLVL.equals(resultado));
 			in.close();
 			f.close();
 		} catch (IOException e) {
-			fail();
+			Assert.fail();
 		}
 
 	}
@@ -380,11 +375,11 @@ public class TestFeatureIDEToHLVLJoan {
 				datosHLVL += linea + "\n";
 				linea = in.readLine();
 			}
-			assertTrue(datosHLVL.equals(resultado));
+			Assert.assertTrue(datosHLVL.equals(resultado));
 			in.close();
 			f.close();
 		} catch (IOException e) {
-			fail();
+			Assert.fail();
 		}
 
 	}
@@ -456,11 +451,11 @@ public class TestFeatureIDEToHLVLJoan {
 				datosHLVL += linea + "\n";
 				linea = in.readLine();
 			}
-			assertTrue(datosHLVL.equals(resultado));
+			Assert.assertTrue(datosHLVL.equals(resultado));
 			in.close();
 			f.close();
 		} catch (IOException e) {
-			fail();
+			Assert.fail();
 		}
 
 	}
